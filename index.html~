@@ -2,8 +2,16 @@
 <html>
 
 <body>
-  <h1> WhatTheHex </h1>
+  <h1 style="text-align:center;">What the Hex</h1>
+  <p style="text-align:center;">Practice converting values between
+    decimal, binary, and hexadecimal and
+    watch the page colors change!</p>
   <button id="button"><a href="lesson.html">Start Lesson</a></button>
+<<<<<<< HEAD
+  <button id="button"><a href="exercise1.html">Skip to Exercises</a></button>
+=======
+  <button id="button1"><a href="skip.html">Skip</a></button>
+>>>>>>> a2e4cbc1878394c2b19325ac90d29b9b0c1812d5
 </body>
 
 </html>
