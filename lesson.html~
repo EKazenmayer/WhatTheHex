@@ -21,8 +21,11 @@ body{
   <div class = "step2">
     <h4>R: 57 = 10<sup>1</sup> x 5 + 10<sup>0</sup> x 7</h4>
     <h4>G: 211 = 10<sup>2</sup> x 2 + 10<sup>1</sup> x 1 + 10<sup>0</sup> x 1</h4>
-    <h4>Now try converting the BLUE (B) value: </h4>
-    <p>B: 199 = 10<sup><input type = "input" maxlength="2" size="2" value=""></sup></p>
+    <p>Now try converting the BLUE (B) value: </p>
+    <form action="/next_step.php">
+    199 = 10<br><sup><input type="number" name=""</sup><br> 
+    <input type="submit" value="Submit">
+    </form>
   </div>
   
 </body>
