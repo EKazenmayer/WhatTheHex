@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html>
 
+<script>
+  function validate(){
+     if(document.getElementById("exp1").value == 2 && document.getElementById("co1").value == 1 && document.getElementById("exp2") == 1 && document.getElementById("co2") && document.getElementById("exp3") == 0 && document.getElementById("co3")){
+       alert("Correct!");
+       return true;
+     }else
+       alert("Incorrect. Try again!");
+       return false;
+  }
+
+
+</script>
+
+
 <head>
 <style>
 body{
@@ -25,7 +39,7 @@ body{
   
     <p>B: 199 = 10<sup><input type="input" id="exp1" maxlength="2" size="2" value=""></sup> x <input type="input" id="co1" maxlength="2" size="2" value=""> + 10<sup><input type="input" id="exp2" maxlength="2" size="2" value=""></sup> x <input type="input" id="co2" maxlength="2" size="2" value=""> + 10<sup><input type="input" id="exp3" maxlength="3" size="2" value=""></sup> x <input type="input" id="co3" maxlength="2" size="2" value=""></p>
   
-    
+    <button onclick="validate()">Submit</button>
   </div>
 
   
