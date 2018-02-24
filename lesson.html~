@@ -4,10 +4,10 @@
 <script>
   function validate(){
      if(document.getElementById("exp1").value == 2 && document.getElementById("co1").value == 1 && document.getElementById("exp2").value == 1 && document.getElementById("co2").value == 9 && document.getElementById("exp3").value == 0 && document.getElementById("co3").value == 9){
-       alert("Correct!");
-       return true;
-     }else{
-       alert("Incorrect. Try again!");
+     if(window.confirm('Congrats! Continue to next module')){
+        return true;
+     }}
+     else{
        return false;
      }
   }
