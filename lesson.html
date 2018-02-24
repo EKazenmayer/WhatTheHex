@@ -2,15 +2,21 @@
 <html>
 
 <script>
-  function validate(){
-     if(document.getElementById("exp1").value == 2 && document.getElementById("co1").value == 1 && document.getElementById("exp2").value == 1 && document.getElementById("co2").value == 9 && document.getElementById("exp3").value == 0 && document.getElementById("co3").value == 9){
-     if(window.confirm('Congrats! Continue to next module')){
-        return true;
-     }}
-     else{
-       alert("Incorrect. Try again!");
-       return false;
-     }
+  function validate(target, base, inputs){
+     var val =0;
+     for(var i = 0; i < inputs.length-1; i+=2){
+        val += Math.pow(base, inputs[i].value)*inputs[i+1].value;
+    }
+    if(val == target){
+      if(window.confirm('Congrats! Continue to next module')){
+         //smooth scroll
+         
+      }else{
+        //stay
+      } 
+    }else{
+      alert("Incorrect. Try again!");
+    }
   }
 </script>
 
@@ -36,9 +42,9 @@ body{
     <h4>G: 211 = 10<sup>2</sup> x 2 + 10<sup>1</sup> x 1 + 10<sup>0</sup> x 1</h4>
     <h4>Now try converting the BLUE (B) value: </h4>
   
-    <p>B: 199 = 10<sup><input type="input" id="exp1" maxlength="2" size="2" value=""></sup> x <input type="input" id="co1" maxlength="2" size="2" value=""> + 10<sup><input type="input" id="exp2" maxlength="2" size="2" value=""></sup> x <input type="input" id="co2" maxlength="2" size="2" value=""> + 10<sup><input type="input" id="exp3" maxlength="3" size="2" value=""></sup> x <input type="input" id="co3" maxlength="2" size="2" value=""></p>
+    <p>B: 199 = 10<sup><input type="input" id="exp1" maxlength="1" size="1" value=""></sup> x <input type="input" id="co1" maxlength="1" size="1" value=""> + 10<sup><input type="input" id="exp2" maxlength="1" size="1" value=""></sup> x <input type="input" id="co2" maxlength="1" size="1" value=""> + 10<sup><input type="input" id="exp3" maxlength="1" size="1" value=""></sup> x <input type="input" id="co3" maxlength="1" size="1" value=""></p>
   
-    <button onclick="validate()">Submit</button>
+    <button onclick="validate(199, 10, [exp1, co1, exp2, co2, exp3, co3])">Submit</button>
   </div>
 </body>
 </html>
