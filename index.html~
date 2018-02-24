@@ -3,7 +3,7 @@
 
 <body>
   <h1> WhatTheHex </h1>
-  <div id="button"><a href="lesson.html">Start Lesson</a></div>
+  <button id="button"><a href="lesson.html">Start Lesson</a></button>
 </body>
 
 </html>
