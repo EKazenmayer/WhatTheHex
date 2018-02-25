@@ -4,16 +4,22 @@
 <head>
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 
-<style>
-body{
-  background-color: rgb(57, 211, 199);
-  text-align: center;
-}
-</style>
 </head>
 
 <body>
+<div id="welcome">
+  <h1 style="text-align:center;">What the Hex!?!</h1>
+  <p style="text-align:center;">Practice converting values between
+    decimal, binary, and hexadecimal and
+    watch the page colors change!</p>
+  <button class="button"><a href="lesson.html">Start Lesson</a></button>
+  <button class="button"><a href="exercise1.html">Skip to Exercises</a></button>
+
+</div>
+
   <div id="step1">
     <h1 style="text-align:center;">This page is teal</h1>
     <h2>Teal has a Red-Green-Blue (RGB) value of:</h2>
@@ -31,7 +37,7 @@ body{
     <p style="text-align:center;">10 in decimal is<br>10<sup>1</sup> x 1 + 10<sup>0</sup> x 0<br>10 in binary is<br>2<sup>1</sup> x 1 + 2<sup>0</sup> x 0</p>
   </div>
 
-  <div id="step4">
+  <div id= "step4">
     <h1 style="text-align:center;">The range of values for each digit in decimal is 0-9<br>The range of values for each digit in binary is 0-1</h1>
   </div>
 
@@ -63,6 +69,30 @@ body{
     <h1>Converting three values just to get one color can get annoying, right? But every color has one unique hex value!</h1>
     <h2>Pink's hex value is FFDBE4</h2>
   </div>
+
+
+<div id="step9">
+  <h1 style="text-align:center;">Hexadecimal values are in base 16 and the range is 0-F. <br> Where the values above 9 are letters </h1>
+
+  <div id="Dec">
+    <pre class="tab"> <h3 style="text-align:center;">Dec 0       1       2       3       4       5       6       7       8       9       10      11      12      13    14      15</h3></pre>
+  </div>
+  <div id="Hex">
+    <pre class="tab"> <h3 style="text-align:center;">Hex 0       1       <input type = "input" id="hex2" maxlength="1" size="2">      <input type = "input" id="hex3" maxlength="1" size="2">     <input type = "input" id="hex4" maxlength="1" size="2">     5       6       7      <input type = "input" id="hex8" maxlength="1" size="2">     9       A       B       <input type = "input" id="hexC" maxlength="1" size="2">     <input type = "input" id="hexD" maxlength="1" size="2">     E       <input type = "input" id="hexF" maxlength="1" size="2"></h3></pre>
+  </div>
+
+  <img src="cornerHex.png" class = "corner">
+  <img src="sideHex.png" class = "side">
+</div>
+
+<div id="step10">
+  <h1 style="text-align:center;">So 39D3C7<sub>16</sub> <br> D=13 C=12 </h1>
+  <h1 style="text-align:center;"> 16<sup>5</sup>x3 + 16<sup>4</sup>x9 + 16<sup>3</sup>xD + 16<sup>2</sup>x3 + 16<sup>1</sup>xC +16<sup>0</sup>x7 </h1>
+  <h1 style="text-align:center;">= 3789767<sub>10</sub> </h1>
+
+</div>
+
+
 
   <div id="step11">
     <h1 style="text-align:center;">Converting directly between hexadecimal and decimal can be difficult.<br>However, converting between hexadecimal and binary is relatively simple!</h1>

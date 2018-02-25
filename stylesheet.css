@@ -1,0 +1,168 @@
+
+body {
+    padding: 0;
+    margin: 0;
+
+    height: 100%;
+
+}
+.side{
+    position: fixed;
+    top: -50px;
+    padding: 0;
+    margin: 0;
+    right:-95px;
+    width:300px;
+    height: auto;
+    pointer-events: none;
+}
+
+
+#welcome{
+    background: linear-gradient(to bottom,#3BC5BA, #74D6CF);
+    background-repeat: no-repeat;
+    display:inline-block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+#step1{
+    background: linear-gradient(to bottom,#81E0D8,#97E5E0);
+    background-repeat: no-repeat;
+    display:inline-block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+#step2{
+    background: linear-gradient(to bottom,#B1F4EE,#C1F6F2);
+    background-repeat: no-repeat;
+    display:block;
+    overflow:hidden;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+#step3{
+    background: linear-gradient(to bottom,#CBFFFB,#DCFFFC);
+    background-repeat: no-repeat;
+    overflow:hidden;
+    display:block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+#step4{
+    background: linear-gradient(to bottom, #ccfffd,#EDFFFD);
+    background-repeat: no-repeat;
+    display:inline-block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+#step5{
+    background: linear-gradient(to bottom,#F0FFFE,#FFFFFF);
+    background-repeat: no-repeat;
+    display:block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+#step6{
+    background: linear-gradient(to bottom,#FFFFFF,#FFEEF2);
+    background-repeat: no-repeat;
+    display:block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+#step7{
+    background: linear-gradient(to bottom,#FFE6EC, #FFF5F7);
+    background-repeat: no-repeat;
+    display:block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+#step8{
+    background: linear-gradient(to bottom,#FBDFE6, #FFEEF2);
+    background-repeat: no-repeat;
+    display:block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+
+#step9{
+    background: linear-gradient(to bottom,#FFDBE4, #FFD3DE);
+    background-repeat: no-repeat;
+    display:inline-block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+#step10{
+    background: linear-gradient(to bottom,#FFC2D1, #FFD3DE);
+    background-repeat: no-repeat;
+    display:inline-block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+#step11{
+    background: linear-gradient(to bottom,#FFB3C6, #FFC1D1);
+    background-repeat: no-repeat;
+    display:block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+#step12{
+    background: linear-gradient(to bottom,#F698AF, #F7A5BA);
+    background-repeat: no-repeat;
+    display:block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+#step13{
+    background: linear-gradient(to bottom,#FA809E, #FA90AB);
+    background-repeat: no-repeat;
+    display:block;
+    background-size:100% 100vh;
+    height:100vh;
+    width:100%;
+}
+
+
+h1{
+    font-family: 'Amatic SC', cursive;
+}
+
+.corner{
+    position: absolute;
+    bottom: -30px;
+    left: -60px;
+    margin:0;
+    padding: 0;
+    position: fixed;
+    width:250px;
+    height: auto;
+    pointer-events: none;
+}
+
+.button{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
