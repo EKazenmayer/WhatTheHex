@@ -129,19 +129,27 @@ body{
       document.getElementById(divId).appendChild(butt);
     }
 
-    function convertByExpansion(target, base, divId, num){
-      if(base == 0){
+    function convertByExpansion(target, sourceBase, targetBase, divId, num){
+      if(targetBase == 0){
         alert("No! Invalid base");
         return;
       }
       const val = target;
       var array = [];
       const question = document.createElement("p");
+      const t = document.createTextNode(val);
+      question.appendChild(t);
+      var sub1 = document.createElement("sub");
+      const s = document.createTextNode(sourceBase);
+      sub1.appendChild(s);
+      question.appendChild(sub1);
+      const e = document.createTextNode(" = ");
+      question.appendChild(e);
       const box3 = document.createElement("input");
       while(target != 0){
-        const q = document.createTextNode(base);
+        const q = document.createTextNode(targetBase);
         question.appendChild(q);
-        target = Math.floor(target / base);
+        target = Math.floor(target / targetBase);
         const id1 = "e"+num;
         const id2 = "c"+num;
 
@@ -171,13 +179,12 @@ body{
           const p = document.createTextNode(" + ");
           question.appendChild(p);
         }else{
-          const e = document.createTextNode(" = ");
           question.appendChild(e);
           box3.setAttribute("id", "b"+num);
           question.appendChild(box3);
-          const sub = document.createElement("sub");
-          sub.appendChild(q);
-          question.appendChild(sub);
+          const sub2 = document.createElement("sub");
+          sub2.appendChild(q);
+          question.appendChild(sub2);
         }
       }
       document.getElementById(divId).appendChild(question);
@@ -185,11 +192,11 @@ body{
       butts.setAttribute("id", "checkExp");
       const submit = document.createTextNode("Submit");
       butts.appendChild(submit);
-      butts.onclick = function(){validate(val, base, array, box3);};
+      butts.onclick = function(){validate(val, targetBase, array, box3);};
       document.getElementById(divId).appendChild(butts);
     }
-    convertByExpansion(199, 10, "step2", 0);
-    convertByExpansion(57, 2, "step5", 3);
+    convertByExpansion(199, 10, 10, "step2", 0);
+    convertByExpansion(57, 10, 2, "step5", 3);
     convertByDivision(199, 2, "step7", 0);
   </script>
 </body>
