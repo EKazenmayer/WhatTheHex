@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-
+<script src="jscolor.js"></script>
+Color: <input class="jscolor" value="FFFFFF">
 <script>
   function validate(target, base, inputs){
      var val =0;
@@ -10,7 +11,7 @@
     if(val == target){
       if(window.confirm('Congrats! Continue to next module')){
          //smooth scroll
-         
+          
       }else{
         //stay
       } 
@@ -45,6 +46,5 @@ body{
     <p>B: 199 = 10<sup><input type="input" id="exp1" maxlength="1" size="1" value=""></sup> x <input type="input" id="co1" maxlength="1" size="1" value=""> + 10<sup><input type="input" id="exp2" maxlength="1" size="1" value=""></sup> x <input type="input" id="co2" maxlength="1" size="1" value=""> + 10<sup><input type="input" id="exp3" maxlength="1" size="1" value=""></sup> x <input type="input" id="co3" maxlength="1" size="1" value=""></p>
   
     <button onclick="validate(199, 10, [exp1, co1, exp2, co2, exp3, co3])">Submit</button>
-  </div>
 </body>
 </html>
