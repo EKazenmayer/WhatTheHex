@@ -58,7 +58,7 @@ RGB value = <span id="rgb-str"></span>
                 val += Math.pow(base, inputs[i].value) * inputs[i + 1].value;
             }
             if (val == target) {
-                if (window.confirm('Congrats! Continue to next module')) {
+                if (window.confirm('Congrats!)) {
                     //smooth scroll
 
                 } else {
@@ -70,20 +70,11 @@ RGB value = <span id="rgb-str"></span>
         }
     </script>
 
+	<script src="jscolor.js"></script>
     <div id="step1">
-        <script src="jscolor.js"></script>
+        
         Pick a color:
         <input class="jscolor {onFineChange:'get(this)'}" value="FFFFFF">
-
-        <p id="hexDisplay"></p>
-        <p id="rgbDisplay"></p>
-        
-        
-
-
-        <h1 style="text-align:center;">FFDBE4<sub>16</sub> = <input type="input" id="final" maxlength="24" size="24"</h1>
-        <button onclick='checkFinal("FFDBE4", 16, final, 2)'>Submit</button>
-        <pre>B<sub>16</sub> = 11<sub>10</sub>    D<sub>16</sub> = 13<sub>10</sub>    E<sub>16</sub> = 14<sub>10</sub>    F<sub>16</sub> = 15<sub>10</sub><pre>
   </div>
     
     <script>
