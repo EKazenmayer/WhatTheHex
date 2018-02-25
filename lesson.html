@@ -1,26 +1,10 @@
 <!DOCTYPE html>
 <html>
 
-<script>
-  function validate(target, base, inputs){
-     var val =0;
-     for(var i = 0; i < inputs.length-1; i+=2){
-        val += Math.pow(base, inputs[i].value)*inputs[i+1].value;
-    }
-    if(val == target){
-      if(window.confirm('Congrats! Continue to next module')){
-         //smooth scroll
-         
-      }else{
-        //stay
-      } 
-    }else{
-      alert("Incorrect. Try again!");
-    }
-  }
-</script>
-
 <head>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <style>
 body{
   background-color: rgb(57, 211, 199);
@@ -30,21 +14,184 @@ body{
 </head>
 
 <body>
-  <div class="step1">
+  <div id="step1">
     <h1 style="text-align:center;">This page is teal</h1>
-    <h3>Teal has an RGB color of:</h3>
+    <h2>Teal has a Red-Green-Blue (RGB) value of:</h2>
 
-    <h4>R: <u>57</u> G: <u>211</u> B: <u>199</u></h4>
+    <h3>R: 57   G: 211  B: 199</h3>
   </div>
 
-  <div class="step2">
-    <h4>R: 57 = 10<sup>1</sup> x 5 + 10<sup>0</sup> x 7</h4>
-    <h4>G: 211 = 10<sup>2</sup> x 2 + 10<sup>1</sup> x 1 + 10<sup>0</sup> x 1</h4>
-    <h4>Now try converting the BLUE (B) value: </h4>
-  
-    <p>B: 199 = 10<sup><input type="input" id="exp1" maxlength="1" size="1" value=""></sup> x <input type="input" id="co1" maxlength="1" size="1" value=""> + 10<sup><input type="input" id="exp2" maxlength="1" size="1" value=""></sup> x <input type="input" id="co2" maxlength="1" size="1" value=""> + 10<sup><input type="input" id="exp3" maxlength="1" size="1" value=""></sup> x <input type="input" id="co3" maxlength="1" size="1" value=""></p>
-  
-    <button onclick="validate(199, 10, [exp1, co1, exp2, co2, exp3, co3])">Submit</button>
+  <div id="step2">
+    <h1>R: 57 = 10<sup>1</sup> x 5 + 10<sup>0</sup> x 7<br>G: 211 = 10<sup>2</sup> x 2 + 10<sup>1</sup> x 1 + 10<sup>0</sup> x 1</h1>
+    <h2>Now try converting the Blue (B) value: </h2>
   </div>
+
+  <div id="step3">
+    <h1 style="text-align:center;">Decimal values use base 10<br>Binary values use base 2</h1>
+    <p style="text-align:center;">10 in decimal is<br>10<sup>1</sup> x 1 + 10<sup>0</sup> x 0<br>10 in binary is<br>2<sup>1</sup> x 1 + 2<sup>0</sup> x 0</p>
+  </div>
+
+  <div class = "step4">
+    <h1 style="text-align:center;">The range of values for each digit in decimal is 0-9<br>The range of values for each digit in binary is 0-1</h1>
+  </div>
+
+  <div id="step5">
+    <h1 style="text-align:center;">Convert 57 to binary</h1>
+  </div>
+
+  <div id="step6">
+    <h1 style="text-align:center;">A trick to converting any decimal value is to continually divide by the base value
+    and write the remainders from right to left as you go</h1>
+    <pre style="text-align:center;">
+      211 / 2 = 105 R 1
+      105 / 2 =  52 R 1
+       52 / 2 =  26 R 0
+       26 / 2 =  13 R 0
+       13 / 2 =   6 R 1
+        6 / 2 =   3 R 0
+        3 / 2 =   1 R 1
+        1 / 2 =   0 R 1
+    </pre>
+    <h2 style="text-align:center;">211<sub>10</sub> = 11010011<sub>2</sub></h2>
+  </div>
+
+  <div id="step7">
+    <h1 style="text-align:center;">Convert 199 to binary</h1>
+  </div>
+
+  <div id="step8">
+    <p>Converting three values just to get one color can get annoying, right? But every color has one unique hex value!</p>
+    <p>Teal's hex value is 39d3c7</p>
+  </div>
+
+  <script>
+    function validate(target, base, inputs, final){
+      var val = 0;
+      for(var i = 0; i < inputs.length-1; i+=2){
+        val += Math.pow(base, inputs[i].value)*inputs[i+1].value;
+      }
+      alert(parseInt(final, base));
+       if(val == target && target == parseInt(final, base)){
+         alert("Correct!");
+         return true;
+       }else{
+         alert("Incorrect. Try again!");
+         return false;
+       }
+    }
+
+    function checkDivision(quotient, remainder, id1, id2, base, divId, num){
+      if(quotient == id1.value && remainder == id2.value){
+        alert("Correct!");
+        if(quotient != 0){
+          convertByDivision(quotient, base, divId, (num+1));
+        }
+        return true;
+      }else{
+        alert("Incorrect. Try again!");
+        return false;
+      }
+    }
+
+    function convertByDivision(target, base, divId, num){
+      if(base == 0){
+        alert("No! Invalid base");
+        return;
+      }
+      const quotient = Math.floor(target / base);
+      const remainder = target % base;
+      const id1 = "a"+num;
+      const id2 = "d"+num;
+      const question = document.createElement("p");
+      const q = document.createTextNode(target + " / " + base + " = ");
+      question.appendChild(q);
+
+      const box1 = document.createElement("input");
+      box1.setAttribute("id", id1);
+      box1.setAttribute("maxlength", 3);
+      box1.setAttribute("size", 3);
+      question.appendChild(box1);
+      const r = document.createTextNode(" R ");
+      question.appendChild(r);
+
+      const box2 = document.createElement("input");
+      box2.setAttribute("id", id2);
+      box2.setAttribute("maxlength", 1);
+      box2.setAttribute("size", 1);
+      question.appendChild(box2);
+      document.getElementById(divId).appendChild(question);
+
+      const butt = document.createElement("button");
+      butt.setAttribute("id", "checkDiv");
+      const submit = document.createTextNode("Submit");
+      butt.appendChild(submit);
+      butt.onclick = function(){checkDivision(quotient, remainder, box1, box2, base, divId, num);};
+      document.getElementById(divId).appendChild(butt);
+    }
+
+    function convertByExpansion(target, base, divId, num){
+      if(base == 0){
+        alert("No! Invalid base");
+        return;
+      }
+      const val = target;
+      var array = [];
+      const question = document.createElement("p");
+      const box3 = document.createElement("input");
+      while(target != 0){
+        const q = document.createTextNode(base);
+        question.appendChild(q);
+        target = Math.floor(target / base);
+        const id1 = "e"+num;
+        const id2 = "c"+num;
+
+        const sup = document.createElement("sup");
+        const box1 = document.createElement("input");
+        box1.setAttribute("id", id1);
+        box1.setAttribute("maxlength", 3);
+        box1.setAttribute("size", 3);
+        sup.appendChild(box1);
+        question.appendChild(sup);
+
+        const r = document.createTextNode(" x ");
+        question.appendChild(r);
+
+        const box2 = document.createElement("input");
+        box2.setAttribute("id", id2);
+        box2.setAttribute("maxlength", 2);
+        box2.setAttribute("size", 2);
+        question.appendChild(box2);
+
+        num++;
+
+        array.push(box1);
+        array.push(box2);
+
+        if(target != 0){
+          const p = document.createTextNode(" + ");
+          question.appendChild(p);
+        }else{
+          const e = document.createTextNode(" = ");
+          question.appendChild(e);
+          box3.setAttribute("id", "b"+num);
+          question.appendChild(box3);
+          const sub = document.createElement("sub");
+          sub.appendChild(q);
+          question.appendChild(sub);
+        }
+      }
+      document.getElementById(divId).appendChild(question);
+      const butts = document.createElement("button");
+      butts.setAttribute("id", "checkExp");
+      const submit = document.createTextNode("Submit");
+      butts.appendChild(submit);
+      butts.onclick = function(){validate(val, base, array, box3);};
+      document.getElementById(divId).appendChild(butts);
+    }
+    convertByExpansion(199, 10, "step2", 0);
+    convertByExpansion(57, 2, "step5", 3);
+    convertByDivision(199, 2, "step7", 0);
+  </script>
 </body>
+
 </html>
