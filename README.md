@@ -8,6 +8,9 @@
 <h2>Tools</h2>
 Javascript, HTML, CSS
 
+<h2>Challenges</h2>
+Implementing a reusable text input paradigm for each question. We utilized JavaScript to solve the issue. We also encountered problems with implementing a smooth scroll for our questions. 
+
 <h2>Additional Resources</h2> 
 We utilized the <a>http://jscolor.com/</a> color picker for our application.
 
