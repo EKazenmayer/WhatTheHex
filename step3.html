@@ -1,56 +1,107 @@
 <!DOCTYPE html>
 <html>
 
-<script>
-  function checkWork(target, base, inputs){
-    var val = 0;
-    for(var i = 0; i < inputs.length-1; i+=2){
-      val += Math.pow(base, inputs[i].value)*inputs[i+1].value;
-    }
-    alert(val);
-     if(val == target){
-       alert("Correct!");
-       return true;
-     }else{
-       alert("Incorrect. Try again!");
-       return false;
-     }
-  }
-</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <body>
-  <div class = "step3">
-    <h3 style="text-align:center;">Decimal values use base 10</h3>
-    <h3 style="text-align:center;">Binary vallues use base 2</h3>
-    <p style="text-align:center;">10 in decimal is<br>10<sup>1</sup> x 1 + 10<sup>0</sup> x 0</p>
-    <p style="text-align:center;">10 in binary is<br>2<sup>1</sup> x 1 + 2<sup>0</sup> x 0</p>
+  <div id="step3">
+    <h1 style="text-align:center;">Decimal values use base 10<br>Binary vallues use base 2</h1>
+    <p style="text-align:center;">10 in decimal is<br>10<sup>1</sup> x 1 + 10<sup>0</sup> x 0<br>10 in binary is<br>2<sup>1</sup> x 1 + 2<sup>0</sup> x 0</p>
   </div>
 
   <div class = "step4">
-    <h1 style="text-align:center;">The range of values for each digit in decimal is 0-9</h1>
-    <h1 style="text-align:center;">The range of values for each digit in binary is 0-1</h1>
+    <h1 style="text-align:center;">The range of values for each digit in decimal is 0-9<br>The range of values for each digit in binary is 0-1</h1>
   </div>
 
-  <div class = "step5">
+  <div id="step5">
     <h1 style="text-align:center;">Convert 57 to binary</h1>
-    <h4 style="text-align:center;">2<sup><input type = "input" id="exp4" maxlength="2" size="2"></sup> x <input type = "input" id="co4" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp5" maxlength="2" size="2"></sup> x <input type = "input" id="co5" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp6" maxlength="2" size="2"></sup> x <input type = "input" id="co6" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp7" maxlength="2" size="2"></sup> x <input type = "input" id="co7" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp8" maxlength="2" size="2"></sup> x <input type = "input" id="co8" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp9" maxlength="2" size="2"></sup> x <input type = "input" id="co9" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp10" maxlength="2" size="2"></sup> x <input type = "input" id="co10" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp11" maxlength="2" size="2"></sup> x <input type = "input" id="co11" maxlength="1" size="1">
-    </h4>
-    <button onclick="checkWork(57, 2, [exp4,co4,exp5,co5,exp6,co6,exp7,co7,exp8,co8,exp9,co9,exp10,co10,exp11,co11])">Submit</button>
+    <p style="text-align:center;">2<sup><input type = "input" id="exp4" maxlength="2" size="2"></sup> x <input type = "input" id="co4" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp5" maxlength="2" size="2"></sup> x <input type = "input" id="co5" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp6" maxlength="2" size="2"></sup> x <input type = "input" id="co6" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp7" maxlength="2" size="2"></sup> x <input type = "input" id="co7" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp8" maxlength="2" size="2"></sup> x <input type = "input" id="co8" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp9" maxlength="2" size="2"></sup> x <input type = "input" id="co9" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp10" maxlength="2" size="2"></sup> x <input type = "input" id="co10" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp11" maxlength="2" size="2"></sup> x <input type = "input" id="co11" maxlength="1" size="1">
+    </p>
+    <button onclick="validate(57, 2, [exp4,co4,exp5,co5,exp6,co6,exp7,co7,exp8,co8,exp9,co9,exp10,co10,exp11,co11])">Submit</button>
   </div>
 
-  <div class = "step6">
-    <h1 style="text-align:center;">Convert 211 to binary</h1>
-    <h4 style="text-align:center;">2<sup><input type = "input" id="exp12" maxlength="2" size="2"></sup> x <input type = "input" id="co12" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp13" maxlength="2" size="2"></sup> x <input type = "input" id="co13" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp14" maxlength="2" size="2"></sup> x <input type = "input" id="co14" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp15" maxlength="2" size="2"></sup> x <input type = "input" id="co15" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp16" maxlength="2" size="2"></sup> x <input type = "input" id="co16" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp17" maxlength="2" size="2"></sup> x <input type = "input" id="co17" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp18" maxlength="2" size="2"></sup> x <input type = "input" id="co18" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp19" maxlength="2" size="2"></sup> x <input type = "input" id="co19" maxlength="1" size="1">
-    </h4>
-    <button onclick="checkWork(211, 2, [exp12,co12,exp13,co13,exp14,co14,exp15,co15,exp16,co16,exp17,co17,exp18,co18,exp19,co19])">Submit</button>
+  <div id="step6">
+    <h1 style="text-align:center;">A trick to converting any decimal value is to continually divide by the base value
+    and write the remainders from right to left as you go</h1>
+    <pre style="text-align:center;">
+      211 / 2 = 105 R 1
+      105 / 2 =  52 R 1
+       52 / 2 =  26 R 0
+       26 / 2 =  13 R 0
+       13 / 2 =   6 R 1
+        6 / 2 =   3 R 0
+        3 / 2 =   1 R 1
+        1 / 2 =   0 R 1
+    </pre>
+    <h2 style="text-align:center;">211<sub>10</sub> = 11010011<sub>2</sub></h2>
   </div>
 
-  <div class = "step7">
+  <div id="step7">
     <h1 style="text-align:center;">Convert 199 to binary</h1>
-    <h4 style="text-align:center;">2<sup><input type = "input" id="exp20" maxlength="2" size="2"></sup> x <input type = "input" id="co20" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp21" maxlength="2" size="2"></sup> x <input type = "input" id="co21" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp22" maxlength="2" size="2"></sup> x <input type = "input" id="co22" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp23" maxlength="2" size="2"></sup> x <input type = "input" id="co23" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp24" maxlength="2" size="2"></sup> x <input type = "input" id="co24" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp25" maxlength="2" size="2"></sup> x <input type = "input" id="co25" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp26" maxlength="2" size="2"></sup> x <input type = "input" id="co26" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp27" maxlength="2" size="2"></sup> x <input type = "input" id="co27" maxlength="1" size="1">
-    </h4>
-    <button onclick="checkWork(199, 2, [exp20,co20,exp21,co21,exp22,co22,exp23,co23,exp24,co24,exp25,co25,exp26,co26,exp27,co27])">Submit</button>
   </div>
+
+  <script>
+    function validate(target, base, inputs){
+      var val = 0;
+      for(var i = 0; i < inputs.length-1; i+=2){
+        val += Math.pow(base, inputs[i].value)*inputs[i+1].value;
+      }
+      alert(val);
+       if(val == target){
+         alert("Correct!");
+         return true;
+       }else{
+         alert("Incorrect. Try again!");
+         return false;
+       }
+    }
+
+    function checkDivision(quotient, remainder, id1, id2, base, divId, num){
+      if(quotient == id1.value && remainder == id2.value){
+        alert("Correct!");
+        if(quotient != 0){
+          convertByDivision(quotient, base, divId, (num+1));
+        }
+        return true;
+      }else{
+        alert("Incorrect. Try again!");
+        return false;
+      }
+    }
+
+    function convertByDivision(target, base, divId, num){
+      const quotient = Math.floor(target / base);
+      const remainder = target % base;
+      const id1 = "a"+num;
+      const id2 = "d"+num;
+      const question = document.createElement("p");
+      const q = document.createTextNode(target + " / " + base + " = ");
+      question.appendChild(q);
+
+      const box1 = document.createElement("input");
+      box1.setAttribute("id", id1);
+      box1.setAttribute("maxlength", 3);
+      box1.setAttribute("size", 3);
+      question.appendChild(box1);
+      const r = document.createTextNode(" R ");
+      question.appendChild(r);
+
+      const box2 = document.createElement("input");
+      box2.setAttribute("id", id2);
+      box2.setAttribute("maxlength", 1);
+      box2.setAttribute("size", 1);
+      question.appendChild(box2);
+      document.getElementById(divId).appendChild(question);
+
+      const butt = document.createElement("button");
+      butt.setAttribute("id", "checkDiv");
+      const submit = document.createTextNode("Submit");
+      butt.appendChild(submit);
+      butt.onclick = function(){checkDivision(quotient, remainder, box1, box2, base, divId, num);};
+      document.getElementById(divId).appendChild(butt);
+    }
+    convertByDivision(199, 2, "step7", 0);
+  </script>
 </body>
 
 </html>
