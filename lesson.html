@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div id="step1">
+<div id="step1" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">This page is teal</h1>
         <h2 style="text-align:center;">Teal has a Red-Green-Blue (RGB) value of:</h2>
@@ -29,34 +29,34 @@
     </div>
 </div>
 
-<div id="step2">
-    <div class="wrapper">
+<div id="step2" class="step">
+    <div class="wrapper" >
         <h1 style="text-align:center;">R: 57 = 10<sup>1</sup> x 5 + 10<sup>0</sup> x 7<br>G: 211 = 10<sup>2</sup> x 2 + 10<sup>1</sup> x 1 + 10<sup>0</sup> x 1</h1>
         <h2 style="text-align:center;">Now try converting the Blue (B) value: </h2>
     </div>
 </div>
 
-<div id="step3">
+<div id="step3" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">Decimal values use base 10<br>Binary values use base 2</h1>
         <p style="text-align:center; font-size: 1.5em;">10 in decimal is<br>10<sup>1</sup> x 1 + 10<sup>0</sup> x 0<br>10 in binary is<br>2<sup>1</sup> x 1 + 2<sup>0</sup> x 0</p>
     </div>
 </div>
 
-<div id= "step4">
+<div id= "step4" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">The range of values for each digit in decimal is 0-9<br>The range of values for each digit in binary is 0-1</h1>
         <h2>The number of digits you have in binary should always be a multiple of 4, so if yours falls short, you can just add on 0's to the front of your converted value to make it fit!</h2>
     </div>
 </div>
 
-<div id="step5">
+<div id="step5" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">Convert 57 to binary</h1>
     </div>
 </div>
 
-<div id="step6">
+<div id="step6" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">A trick to converting any decimal value is to continually divide by the base value
             and write the remainders from right to left as you go</h1>
@@ -74,18 +74,18 @@
     </div>
 </div>
 
-<div id="step7">
+<div id="step7" class="step">
     <h1 style="text-align:center;">Convert 199 to binary</h1>
 </div>
 
-<div id="step8">
+<div id="step8" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">Converting three values just to get one color can get annoying, right? But every color has one unique hex value!</h1>
         <h2 style="text-align:center;">Pink's hex value is FFDBE4</h2>
     </div>
 </div>
 
-<div id="step9">
+<div id="step9" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">Hexadecimal values are in base 16 and the range is 0-F. <br> Where the values above 9 are letters </h1>
 
@@ -135,10 +135,11 @@
         </table>
         <img src="cornerHex.png" class = "corner">
         <img src="sideHex.png" class = "side">
+        <button onclick='checkHexChart([hex2,hex3,hex4,hex8,hexC,hexD,hexF])'>Submit</button>
     </div>
 </div>
 
-<div id="step10">
+<div id="step10" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">So 39D3C7<sub>16</sub> <br> D=13 C=12 </h1>
         <h1 style="text-align:center;"> 16<sup>5</sup>x3 + 16<sup>4</sup>x9 + 16<sup>3</sup>xD + 16<sup>2</sup>x3 + 16<sup>1</sup>xC +16<sup>0</sup>x7 </h1>
@@ -146,14 +147,14 @@
     </div>
 </div>
 
-<div id="step11">
+<div id="step11" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">Converting directly between hexadecimal and decimal can be difficult.<br>However, converting between hexadecimal and binary is relatively simple!</h1>
         <p style="text-align:center; font-size:1.5em;">Take each individual hexadecimal digit, convert it to decimal, then convert that to binary<br>So for the first digit of FFDBE4,<br><br>F<sub>16</sub> = 15<sub>10</sub> = 2<sup>3</sup> x 1 + 2<sup>2</sup> x 1 + 2<sup>1</sup> x 1 + 2<sup>0</sup> x 1 = 1111<sub>2</sub></p>
     </div>
 </div>
 
-<div id="step12">
+<div id="step12" class="step">
     <div class="wrapper">
         <h1 style="text-align:center;">FFDBE4<sub>16</sub> = <input type="input" id="final" maxlength="24" size="24"><sub>2</sub></h1>
         <button onclick='checkFinal("FFDBE4", 16, final, 2)'>Submit</button>
@@ -161,7 +162,7 @@
     </div>
 </div>
 
-<div id="step13">
+<div id="step13" class="step">
 
     <h1 style="text-align:center;">Guess what color 1100 0110 1110 0101 1100 0001 is<br>Hex value = <input type="input" id="fin2" maxlength="6" size="6"></h1>
     <button onclick='checkFinal("110001101110010111000001", 2, fin2, 16)'>Submit</button>
@@ -176,9 +177,20 @@
     var s2 = 0;
     var s3 = 0;
     var s4 = 0;
+    function checkHexChart(array){
+        if(parseInt(array[0].value) == 2 && parseInt(array[1].value) == 3 && parseInt(array[2].value) == 4 && parseInt(array[3].value) == 8   && (array[4].value).toLowerCase() == 'c' && (array[5].value).toLowerCase() == 'd'  && (array[6].value).toLowerCase() == 'f' ){
+            alert("Correct!");
+            //animate
+            return true;
+        }else{
+            alert("Incorrect. Try again!");
+            return false;
+        }
+    }
     function checkFinal(target, targetBase, final, finalBase){
         if(parseInt(target, targetBase) == parseInt(final.value, finalBase)){
             alert("Correct!");
+            //animate
             return true;
         }else{
             alert("Incorrect. Try again!");
@@ -192,6 +204,7 @@
         }
         if(val == target && target == parseInt(final.value, base)){
             alert("Correct!");
+            //animate
             if(num == 10){
                 divNum += convertByDivision(14, 2, "step12", num);
             }
@@ -210,6 +223,7 @@
         }
         if(target == dec.value && hex.value.toLowerCase() == hexadecimal && target == val){
             alert("Correct!");
+            //animate
             return true;
         }else{
             alert("Incorrect. Try again!");
@@ -223,6 +237,7 @@
                 convertByDivision(quotient, base, divId, (num + 1));
                 return true;
             }else{
+                //animate
                 switch (num) {
                     case 3:
                         divNum += convertByDivision(13, 2, "step12", num);

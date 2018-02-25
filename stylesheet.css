@@ -4,7 +4,42 @@ body {
     margin: 0;
 
     height: 100%;
+    font-family: 'Raleway', sans-serif;
 
+}
+@keyframes animate {
+    0% {
+        -webkit-filter: saturate(0);
+        filter: saturate(0);
+    }
+    50% {
+        -webkit-filter: saturate(8);
+        filter: saturate(8);
+    }
+    100%{
+        -webkit-filter: saturate(0);
+        filter: saturate(0);
+    }
+}
+
+.step{
+    animation-name: animate;
+    animation-duration: 5s;
+    animation-delay: 3s;
+}
+pre{
+    font-size: 2em;
+}
+
+#step11 p{
+    font-size:1.5em;
+}
+
+#step3 p{
+    font-size:1.5em;
+}
+html{
+    background: #F7A5BA;
 }
 .side{
     position: fixed;
@@ -25,6 +60,8 @@ td{
     text-align: center;
     margin-right:auto;
     margin-left:auto;
+    padding-left: 50px;
+    padding-right:50px;
 
 }
 
@@ -173,16 +210,17 @@ table{
 #step12{
     background: linear-gradient(to bottom,#F698AF, #F7A5BA);
     background-repeat: no-repeat;
-    display:block;
+    display: block;
     background-size:100% 100vh;
-    height:100vh;
+    overflow:auto;
+    min-height:100vh;
     width:100%;
     text-align: center;
 }
 #step13{
     background: linear-gradient(to bottom,#FA809E, #FA90AB);
     background-repeat: no-repeat;
-    display:block;
+    display:inline-block;
     background-size:100% 100vh;
     height:100vh;
     width:100%;
@@ -196,8 +234,8 @@ font-family: 'Montserrat', sans-serif;
 font-family: 'Dosis', sans-serif;
     font-family: 'Jura', sans-serif;
  */
-    font-family: 'Amatic SC', cursive;
-    letter-spacing: 3px;
+    font-family: 'Concert One', cursive;
+
 }
 
 .corner{
