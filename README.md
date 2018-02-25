@@ -3,7 +3,7 @@
 <p><i>With special thanks to our tester Tomer Aberbach</i><p>
 
 <h2>What is What The Hex?</h2>
-<p>What The Hex is an application designed to help people of different ages learn about how to make hex colors for their own applications. With two modes, students can go through a hexidecimal conversion lesson or convert a color of their choosing!</p>
+<p>What The Hex is an application designed to help people of different ages learn about how to make hex colors for their own applications. Students can go through a self-paced hexidecimal conversion lesson!</p>
 
 <h2>Tools</h2>
 Javascript, HTML, CSS
