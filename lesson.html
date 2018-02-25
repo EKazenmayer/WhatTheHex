@@ -6,18 +6,18 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Concert+One|Dosis:300|Raleway" rel="stylesheet">
 </head>
 
 <body>
 <div id="welcome">
     <div class="wrapper">
-        <h1 style="text-align:center;">What the Hex!?!</h1>
-        <p style="text-align:center;">Practice converting values between
+        <h1 style="text-align:center;">What the Hex</h1>
+        <p style="text-align:center; font-size:1.5em;">Practice converting values between
             decimal, binary, and hexadecimal and
             watch the page colors change!</p>
         <button class="button"><a href="lesson.html">Start Lesson</a></button>
-        <button class="button"><a href="color-picker.html">Skip to Exercises</a></button>
+        <button class="button"><a href="exercise1.html">Skip to Exercises</a></button>
     </div>
 </div>
 
@@ -39,14 +39,14 @@
 <div id="step3">
     <div class="wrapper">
         <h1 style="text-align:center;">Decimal values use base 10<br>Binary values use base 2</h1>
-        <p style="text-align:center;">10 in decimal is<br>10<sup>1</sup> x 1 + 10<sup>0</sup> x 0<br>10 in binary is<br>2<sup>1</sup> x 1 + 2<sup>0</sup> x 0</p>
+        <p style="text-align:center; font-size: 1.5em;">10 in decimal is<br>10<sup>1</sup> x 1 + 10<sup>0</sup> x 0<br>10 in binary is<br>2<sup>1</sup> x 1 + 2<sup>0</sup> x 0</p>
     </div>
 </div>
 
 <div id= "step4">
     <div class="wrapper">
         <h1 style="text-align:center;">The range of values for each digit in decimal is 0-9<br>The range of values for each digit in binary is 0-1</h1>
-        <h2>The amount of digits you have in binary should always be a multiple of 4, so if yours falls short, you can just add on 0's to the front of your converted value to make it fit!</h2>
+        <h2>The number of digits you have in binary should always be a multiple of 4, so if yours falls short, you can just add on 0's to the front of your converted value to make it fit!</h2>
     </div>
 </div>
 
@@ -149,13 +149,13 @@
 <div id="step11">
     <div class="wrapper">
         <h1 style="text-align:center;">Converting directly between hexadecimal and decimal can be difficult.<br>However, converting between hexadecimal and binary is relatively simple!</h1>
-        <p style="text-align:center;">Take each individual hexadecimal digit, convert it to decimal, then convert that to binary<br>So for the first digit of FFDBE4,<br>F<sub>16</sub> = 15<sub>10</sub> = 2<sup>3</sup> x 1 + 2<sup>2</sup> x 1 + 2<sup>1</sup> x 1 + 2<sup>0</sup> x 1 = 1111<sub>2</sub></p>
+        <p style="text-align:center; font-size:1.5em;">Take each individual hexadecimal digit, convert it to decimal, then convert that to binary<br>So for the first digit of FFDBE4,<br><br>F<sub>16</sub> = 15<sub>10</sub> = 2<sup>3</sup> x 1 + 2<sup>2</sup> x 1 + 2<sup>1</sup> x 1 + 2<sup>0</sup> x 1 = 1111<sub>2</sub></p>
     </div>
 </div>
 
 <div id="step12">
     <div class="wrapper">
-        <h1 style="text-align:center;">FFDBE4<sub>16</sub> = <input type="input" id="final" maxlength="24" size="24"></h1>
+        <h1 style="text-align:center;">FFDBE4<sub>16</sub> = <input type="input" id="final" maxlength="24" size="24"><sub>2</sub></h1>
         <button onclick='checkFinal("FFDBE4", 16, final, 2)'>Submit</button>
         <pre>B<sub>16</sub> = 11<sub>10</sub>    D<sub>16</sub> = 13<sub>10</sub>    E<sub>16</sub> = 14<sub>10</sub>    F<sub>16</sub> = 15<sub>10</sub></pre>
     </div>
@@ -163,13 +163,12 @@
 
 <div id="step13">
 
-        <h1 style="text-align:center;">Guess what color 1100 0110 1110 0101 1100 0001 is<br>Hex value = <input type="input" id="fin2" maxlength="6" size="6"></h1>
-            <button onclick='checkFinal("110001101110010111000001", 2, fin2, 16)'>Submit</button>
+    <h1 style="text-align:center;">Guess what color 1100 0110 1110 0101 1100 0001 is<br>Hex value = <input type="input" id="fin2" maxlength="6" size="6"></h1>
+    <button onclick='checkFinal("110001101110010111000001", 2, fin2, 16)'>Submit</button>
 
 </div>
 
 <script>
-
     var expNum = 0;
     var divNum = 0;
     var allNum = 0;
@@ -177,7 +176,6 @@
     var s2 = 0;
     var s3 = 0;
     var s4 = 0;
-
     function checkFinal(target, targetBase, final, finalBase){
         if(parseInt(target, targetBase) == parseInt(final.value, finalBase)){
             alert("Correct!");
@@ -192,12 +190,8 @@
         for(var i = 0; i < inputs.length-1; i+=2){
             val += Math.pow(base, inputs[i].value)*inputs[i+1].value;
         }
-        alert(val);
-        alert(target);
-        alert(parseInt(final.value, base));
         if(val == target && target == parseInt(final.value, base)){
             alert("Correct!");
-            alert(num);
             if(num == 10){
                 divNum += convertByDivision(14, 2, "step12", num);
             }
@@ -214,9 +208,6 @@
         for(var i = 0; i < inputs.length-1; i+=2){
             val += Math.pow(2, inputs[i].value)*inputs[i+1].value;
         }
-        alert(hex.value.toLowerCase());
-        alert(hexadecimal);
-        alert(val);
         if(target == dec.value && hex.value.toLowerCase() == hexadecimal && target == val){
             alert("Correct!");
             return true;
@@ -226,7 +217,6 @@
         }
     }
     function checkDivision(quotient, remainder, id1, id2, base, divId, num){
-        alert(num);
         if(quotient == id1.value && remainder == id2.value) {
             alert("Correct!");
             if (quotient != 0) {
@@ -248,8 +238,8 @@
                 }
             }
         }else {
-                alert("Incorrect. Try again!");
-                return false;
+            alert("Incorrect. Try again!");
+            return false;
         }
     }
     function convertByDivision(target, base, divId, num){
@@ -413,12 +403,10 @@
         document.getElementById(divId).appendChild(buttss);
         return num;
     }
-
     expNum += convertByExpansion(199, 10, 10, "step2", expNum);
     expNum += convertByExpansion(57, 10, 2, "step5", expNum);
     divNum += convertByDivision(199, 2, "step7", divNum);
     divNum += convertByDivision(15, 2, "step12", divNum);
-
     allNum += convertFromBinary("1100", "step13", allNum);
     allNum += convertFromBinary("0110", "step13", allNum);
     allNum += convertFromBinary("1110", "step13", allNum);
