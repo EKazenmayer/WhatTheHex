@@ -9,7 +9,7 @@
     <p style="text-align:center;">10 in decimal is<br>10<sup>1</sup> x 1 + 10<sup>0</sup> x 0<br>10 in binary is<br>2<sup>1</sup> x 1 + 2<sup>0</sup> x 0</p>
   </div>
 
-  <div class = "step4">
+  <div id="step4">
     <h1 style="text-align:center;">The range of values for each digit in decimal is 0-9<br>The range of values for each digit in binary is 0-1</h1>
   </div>
 
@@ -42,7 +42,23 @@
     <p style="text-align:center;">Take each individual hexadecimal digit, convert it to decimal, then convert that to binary<br>So for the first digit of FFDBE4,<br>F<sub>16</sub> = 15<sub>10</sub> = 2<sup>3</sup> x 1 + 2<sup>2</sup> x 1 + 2<sup>1</sup> x 1 + 2<sup>0</sup> x 1 = 1111<sub>2</sub></p>
   </div>
 
+  <div id="step12">
+    <h1 style="text-align:center;">FFDBE4<sub>16</sub> = <input type="input" id="final" maxlength="24" size="24"</h1>
+    <button onclick="checkFinal("FFDBE4", 16, final, 2)">Submit</button>
+  </div>
+
   <script>
+
+    function checkFinal(target, targetBase, final, finalBase){
+      if(parseInt(target, targetBase) == parseInt(final.value, finalBase)){
+        alert("Correct!");
+        return true;
+      }else{
+        alert("Incorrect. Try again!");
+        return false;
+      }
+    }
+
     function validate(target, base, inputs, final){
       var val = 0;
       for(var i = 0; i < inputs.length-1; i+=2){
