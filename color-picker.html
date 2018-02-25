@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+
+    <!--    <style>
+        body {
+            background-color: rgb(57, 211, 199);
+            text-align: center;
+        }
+    </style>-->
+</head>
+
+<body>
+
+    <!--
+<p>   
+HEX value = <span id="hex-str"></span><br />
+    
+RGB value = <span id="rgb-str"></span>  
+</p>-->
+
+
+
+    <script>
+        function get(picker) {
+            /*document.getElementById('hex-str').innerHTML = picker.toHEXString();
+            document.getElementById('rgb-str').innerHTML = picker.toRGBString();*/
+            var rgbVal = picker.toRGBString();
+            var hexVal = picker.toHEXString();
+            //console.log(hexVal);
+            //return hexVal;
+
+            //    const hx = document.createElement("p");
+            //    const h = document.createTextNode(hexVal);
+            //    hx.appendChild(h);
+            //    document.getElementById("hexDisplay").appendChild(hx);
+
+            document.getElementById("hexDisplay").innerHTML = hexVal;
+            var hexSplit = hexVal.split("");
+            console.log(hexSplit);
+
+            document.getElementById("rgbDisplay").innerHTML = rgbVal;
+            var rgbSplit = rgbVal.split("");
+
+        }
+    </script>
+
+
+    <script>
+        function validate(target, base, inputs) {
+            var val = 0;
+            for (var i = 0; i < inputs.length - 1; i += 2) {
+                val += Math.pow(base, inputs[i].value) * inputs[i + 1].value;
+            }
+            if (val == target) {
+                if (window.confirm('Congrats! Continue to next module')) {
+                    //smooth scroll
+
+                } else {
+                    //stay
+                }
+            } else {
+                alert("Incorrect. Try again!");
+            }
+        }
+    </script>
+
+    <div id="step1">
+        <script src="jscolor.js"></script>
+        Pick a color:
+        <input class="jscolor {onFineChange:'get(this)'}" value="FFFFFF">
+
+        <p id="hexDisplay"></p>
+        <p id="rgbDisplay"></p>
+        
+        
+
+
+        <h1 style="text-align:center;">FFDBE4<sub>16</sub> = <input type="input" id="final" maxlength="24" size="24"</h1>
+        <button onclick='checkFinal("FFDBE4", 16, final, 2)'>Submit</button>
+        <pre>B<sub>16</sub> = 11<sub>10</sub>    D<sub>16</sub> = 13<sub>10</sub>    E<sub>16</sub> = 14<sub>10</sub>    F<sub>16</sub> = 15<sub>10</sub><pre>
+  </div>
+    
+    <script>
+    function checkFinal(target, targetBase, final, finalBase){
+      if(parseInt(target, targetBase) == parseInt(final.value, finalBase)){
+        alert("Correct!");
+        return true;
+      }else{
+        alert("Incorrect. Try again!");
+        return false;
+      }
+    }
+
+    function validate(target, base, inputs, final){
+      var val = 0;
+      for(var i = 0; i < inputs.length-1; i+=2){
+        val += Math.pow(base, inputs[i].value)*inputs[i+1].value;
+      }
+      alert(parseInt(final, base));
+       if(val == target && target == parseInt(final, base)){
+         alert("Correct!");
+         return true;
+       }else{
+         alert("Incorrect. Try again!");
+         return false;
+       }
+    }
+
+    function checkDivision(quotient, remainder, id1, id2, base, divId, num){
+      if(quotient == id1.value && remainder == id2.value){
+        alert("Correct!");
+        if(quotient != 0){
+          convertByDivision(quotient, base, divId, (num+1));
+        }
+        return true;
+      }else{
+        alert("Incorrect. Try again!");
+        return false;
+      }
+    }
+
+    function convertByDivision(target, base, divId, num){
+      if(base == 0){
+        alert("No! Invalid base");
+        return;
+      }
+      const quotient = Math.floor(target / base);
+      const remainder = target % base;
+      const id1 = "a"+num;
+      const id2 = "d"+num;
+      const question = document.createElement("p");
+      const q = document.createTextNode(target + " / " + base + " = ");
+      question.appendChild(q);
+
+      const box1 = document.createElement("input");
+      box1.setAttribute("id", id1);
+      box1.setAttribute("maxlength", 3);
+      box1.setAttribute("size", 3);
+      question.appendChild(box1);
+      const r = document.createTextNode(" R ");
+      question.appendChild(r);
+
+      const box2 = document.createElement("input");
+      box2.setAttribute("id", id2);
+      box2.setAttribute("maxlength", 1);
+      box2.setAttribute("size", 1);
+      question.appendChild(box2);
+      document.getElementById(divId).appendChild(question);
+
+      const butt = document.createElement("button");
+      butt.setAttribute("id", "checkDiv");
+      const submit = document.createTextNode("Submit");
+      butt.appendChild(submit);
+      butt.onclick = function(){checkDivision(quotient, remainder, box1, box2, base, divId, num);};
+      document.getElementById(divId).appendChild(butt);
+      return num;
+    }
+
+    function convertByExpansion(target, sourceBase, targetBase, divId, num){
+      if(targetBase == 0){
+        alert("No! Invalid base");
+        return;
+      }
+      const val = target;
+      var array = [];
+      const question = document.createElement("p");
+      const t = document.createTextNode(val);
+      question.appendChild(t);
+      var sub1 = document.createElement("sub");
+      const s = document.createTextNode(sourceBase);
+      sub1.appendChild(s);
+      question.appendChild(sub1);
+      const e = document.createTextNode(" = ");
+      question.appendChild(e);
+      const box3 = document.createElement("input");
+      while(target != 0){
+        const q = document.createTextNode(targetBase);  
+        question.appendChild(q.cloneNode(true));
+        target = Math.floor(target / targetBase);
+        const id1 = "e"+num;
+        const id2 = "c"+num;
+
+        const sup = document.createElement("sup");
+        const box1 = document.createElement("input");
+        box1.setAttribute("id", id1);
+        box1.setAttribute("maxlength", 3);
+        box1.setAttribute("size", 3);
+        sup.appendChild(box1);
+        question.appendChild(sup);
+
+        const r = document.createTextNode(" x ");
+        question.appendChild(r);
+
+        const box2 = document.createElement("input");
+        box2.setAttribute("id", id2);
+        box2.setAttribute("maxlength", 2);
+        box2.setAttribute("size", 2);
+        question.appendChild(box2);
+
+        num++;
+
+        array.push(box1);
+        array.push(box2);
+
+        if(target != 0){
+          const p = document.createTextNode(" + ");
+          question.appendChild(p);
+        }else{
+          question.appendChild(e.cloneNode(true));
+          box3.setAttribute("id", "b"+num);
+          question.appendChild(box3);
+          const sub2 = document.createElement("sub");
+          sub2.appendChild(q);
+          question.appendChild(sub2);
+        }
+      }
+      document.getElementById(divId).appendChild(question);
+      const butts = document.createElement("button");
+      butts.setAttribute("id", "checkExp");
+      const submit = document.createTextNode("Submit");
+      butts.appendChild(submit);
+      butts.onclick = function(){validate(val, targetBase, array, box3);};
+      document.getElementById(divId).appendChild(butts);
+      return num;
+    }
+
+    var expNum = 0;
+    var divNum = 0;
+    //expNum += convertByExpansion(199, 10, 10, "step1", expNum);
+    
+</body>
+</html>
