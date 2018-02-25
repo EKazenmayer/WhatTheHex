@@ -22,14 +22,14 @@
 
   <div id="step1">
     <h1 style="text-align:center;">This page is teal</h1>
-    <h2>Teal has a Red-Green-Blue (RGB) value of:</h2>
+    <h2 style="text-align:center;">Teal has a Red-Green-Blue (RGB) value of:</h2>
 
-    <h3>R: 57   G: 211  B: 199</h3>
+    <h3 style="text-align:center;">R: 57   G: 211  B: 199</h3>
   </div>
 
   <div id="step2">
-    <h1>R: 57 = 10<sup>1</sup> x 5 + 10<sup>0</sup> x 7<br>G: 211 = 10<sup>2</sup> x 2 + 10<sup>1</sup> x 1 + 10<sup>0</sup> x 1</h1>
-    <h2>Now try converting the Blue (B) value: </h2>
+    <h1 style="text-align:center;">R: 57 = 10<sup>1</sup> x 5 + 10<sup>0</sup> x 7<br>G: 211 = 10<sup>2</sup> x 2 + 10<sup>1</sup> x 1 + 10<sup>0</sup> x 1</h1>
+    <h2 style="text-align:center;">Now try converting the Blue (B) value: </h2>
   </div>
 
   <div id="step3">
@@ -66,10 +66,9 @@
   </div>
 
   <div id="step8">
-    <h1>Converting three values just to get one color can get annoying, right? But every color has one unique hex value!</h1>
-    <h2>Pink's hex value is FFDBE4</h2>
+    <h1 style="text-align:center;">Converting three values just to get one color can get annoying, right? But every color has one unique hex value!</h1>
+    <h2 style="text-align:center;">Pink's hex value is FFDBE4</h2>
   </div>
-
 
 <div id="step9">
   <h1 style="text-align:center;">Hexadecimal values are in base 16 and the range is 0-F. <br> Where the values above 9 are letters </h1>
@@ -89,17 +88,30 @@
   <h1 style="text-align:center;">So 39D3C7<sub>16</sub> <br> D=13 C=12 </h1>
   <h1 style="text-align:center;"> 16<sup>5</sup>x3 + 16<sup>4</sup>x9 + 16<sup>3</sup>xD + 16<sup>2</sup>x3 + 16<sup>1</sup>xC +16<sup>0</sup>x7 </h1>
   <h1 style="text-align:center;">= 3789767<sub>10</sub> </h1>
-
 </div>
-
-
 
   <div id="step11">
     <h1 style="text-align:center;">Converting directly between hexadecimal and decimal can be difficult.<br>However, converting between hexadecimal and binary is relatively simple!</h1>
     <p style="text-align:center;">Take each individual hexadecimal digit, convert it to decimal, then convert that to binary<br>So for the first digit of FFDBE4,<br>F<sub>16</sub> = 15<sub>10</sub> = 2<sup>3</sup> x 1 + 2<sup>2</sup> x 1 + 2<sup>1</sup> x 1 + 2<sup>0</sup> x 1 = 1111<sub>2</sub></p>
   </div>
 
+  <div id="step12">
+    <h1 style="text-align:center;">FFDBE4<sub>16</sub> = <input type="input" id="final" maxlength="24" size="24"</h1>
+    <button onclick='checkFinal("FFDBE4", 16, final, 2)'>Submit</button>
+    <pre>B<sub>16</sub> = 11<sub>10</sub>    D<sub>16</sub> = 13<sub>10</sub>    E<sub>16</sub> = 14<sub>10</sub>    F<sub>16</sub> = 15<sub>10</sub><pre>
+  </div>
+
   <script>
+    function checkFinal(target, targetBase, final, finalBase){
+      if(parseInt(target, targetBase) == parseInt(final.value, finalBase)){
+        alert("Correct!");
+        return true;
+      }else{
+        alert("Incorrect. Try again!");
+        return false;
+      }
+    }
+
     function validate(target, base, inputs, final){
       var val = 0;
       for(var i = 0; i < inputs.length-1; i+=2){
@@ -162,6 +174,7 @@
       butt.appendChild(submit);
       butt.onclick = function(){checkDivision(quotient, remainder, box1, box2, base, divId, num);};
       document.getElementById(divId).appendChild(butt);
+      return num;
     }
 
     function convertByExpansion(target, sourceBase, targetBase, divId, num){
@@ -229,10 +242,19 @@
       butts.appendChild(submit);
       butts.onclick = function(){validate(val, targetBase, array, box3);};
       document.getElementById(divId).appendChild(butts);
+      return num;
     }
-    convertByExpansion(199, 10, 10, "step2", 0);
-    convertByExpansion(57, 10, 2, "step5", 3);
-    convertByDivision(199, 2, "step7", 0);
+
+    var expNum = 0;
+    var divNum = 0;
+    expNum += convertByExpansion(199, 10, 10, "step2", expNum);
+    expNum += convertByExpansion(57, 10, 2, "step5", expNum);
+    divNum += convertByDivision(199, 2, "step7", divNum);
+    divNum += convertByDivision(15, 2, "step12", divNum);
+    divNum += convertByDivision(13, 2, "step12", divNum);
+    expNum += convertByExpansion(11, 10, 2, "step12", expNum);
+    divNum += convertByDivision(14, 2, "step12", divNum);
+    expNum += convertByExpansion(4, 10, 2, "step12", expNum);
   </script>
 </body>
 
