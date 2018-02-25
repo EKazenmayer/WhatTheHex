@@ -15,9 +15,9 @@
 
   <div id="step5">
     <h1 style="text-align:center;">Convert 57 to binary</h1>
-    <p style="text-align:center;">2<sup><input type = "input" id="exp4" maxlength="2" size="2"></sup> x <input type = "input" id="co4" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp5" maxlength="2" size="2"></sup> x <input type = "input" id="co5" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp6" maxlength="2" size="2"></sup> x <input type = "input" id="co6" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp7" maxlength="2" size="2"></sup> x <input type = "input" id="co7" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp8" maxlength="2" size="2"></sup> x <input type = "input" id="co8" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp9" maxlength="2" size="2"></sup> x <input type = "input" id="co9" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp10" maxlength="2" size="2"></sup> x <input type = "input" id="co10" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp11" maxlength="2" size="2"></sup> x <input type = "input" id="co11" maxlength="1" size="1">
-    </p>
-    <button onclick="validate(57, 2, [exp4,co4,exp5,co5,exp6,co6,exp7,co7,exp8,co8,exp9,co9,exp10,co10,exp11,co11])">Submit</button>
+    <!-- <p style="text-align:center;">2<sup><input type = "input" id="exp4" maxlength="2" size="2"></sup> x <input type = "input" id="co4" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp5" maxlength="2" size="2"></sup> x <input type = "input" id="co5" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp6" maxlength="2" size="2"></sup> x <input type = "input" id="co6" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp7" maxlength="2" size="2"></sup> x <input type = "input" id="co7" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp8" maxlength="2" size="2"></sup> x <input type = "input" id="co8" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp9" maxlength="2" size="2"></sup> x <input type = "input" id="co9" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp10" maxlength="2" size="2"></sup> x <input type = "input" id="co10" maxlength="1" size="1"> + 2<sup><input type = "input" id="exp11" maxlength="2" size="2"></sup> x <input type = "input" id="co11" maxlength="1" size="1">
+    <!-- </p>
+    <button onclick="validate(57, 2, [exp4,co4,exp5,co5,exp6,co6,exp7,co7,exp8,co8,exp9,co9,exp10,co10,exp11,co11])">Submit</button> -->
   </div>
 
   <div id="step6">
@@ -43,13 +43,13 @@
 
 
   <script>
-    function validate(target, base, inputs){
+    function validate(target, base, inputs, final){
       var val = 0;
       for(var i = 0; i < inputs.length-1; i+=2){
         val += Math.pow(base, inputs[i].value)*inputs[i+1].value;
       }
-      alert(val);
-       if(val == target){
+      alert(parseInt(final, base));
+       if(val == target && target == parseInt(final, base)){
          alert("Correct!");
          return true;
        }else{
@@ -72,6 +72,10 @@
     }
 
     function convertByDivision(target, base, divId, num){
+      if(base == 0){
+        alert("No! Invalid base");
+        return;
+      }
       const quotient = Math.floor(target / base);
       const remainder = target % base;
       const id1 = "a"+num;
@@ -102,6 +106,68 @@
       butt.onclick = function(){checkDivision(quotient, remainder, box1, box2, base, divId, num);};
       document.getElementById(divId).appendChild(butt);
     }
+
+    function convertByExpansion(target, base, divId, num){
+      if(base == 0){
+        alert("No! Invalid base");
+        return;
+      }
+      const val = target;
+      var array = [];
+      const question = document.createElement("p");
+      const box3 = document.createElement("input");
+      while(target != 0){
+        const q = document.createTextNode(base);
+        question.appendChild(q);
+        target = Math.floor(target / base);
+        const id1 = "e"+num;
+        const id2 = "c"+num;
+
+        const sup = document.createElement("sup");
+        const box1 = document.createElement("input");
+        box1.setAttribute("id", id1);
+        box1.setAttribute("maxlength", 3);
+        box1.setAttribute("size", 3);
+        sup.appendChild(box1);
+        question.appendChild(sup);
+
+        const r = document.createTextNode(" x ");
+        question.appendChild(r);
+
+        const box2 = document.createElement("input");
+        box2.setAttribute("id", id2);
+        box2.setAttribute("maxlength", 2);
+        box2.setAttribute("size", 2);
+        question.appendChild(box2);
+
+        num++;
+
+        array.push(box1);
+        array.push(box2);
+
+        if(target != 0){
+          const p = document.createTextNode(" + ");
+          question.appendChild(p);
+        }else{
+          const e = document.createTextNode(" = ");
+          question.appendChild(e);
+          box3.setAttribute("id", "b"+num);
+          question.appendChild(box3);
+          const sub = document.createElement("sub");
+          sub.appendChild(q);
+          question.appendChild(sub);
+        }
+      }
+      document.getElementById(divId).appendChild(question);
+      const butts = document.createElement("button");
+      butts.setAttribute("id", "checkExp");
+      const submit = document.createTextNode("Submit");
+      butts.appendChild(submit);
+      butts.onclick = function(){validate(val, base, array, box3);};
+      document.getElementById(divId).appendChild(butts);
+    }
+
+    convertByExpansion(57, 2, "step5", 0);
     convertByDivision(199, 2, "step7", 0);
   </script>
 </body>
