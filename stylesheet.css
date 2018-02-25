@@ -7,26 +7,8 @@ body {
     font-family: 'Raleway', sans-serif;
 
 }
-@keyframes animate {
-    0% {
-        -webkit-filter: saturate(0);
-        filter: saturate(0);
-    }
-    50% {
-        -webkit-filter: saturate(8);
-        filter: saturate(8);
-    }
-    100%{
-        -webkit-filter: saturate(0);
-        filter: saturate(0);
-    }
-}
 
-.step{
-    animation-name: animate;
-    animation-duration: 5s;
-    animation-delay: 3s;
-}
+
 pre{
     font-size: 2em;
 }
